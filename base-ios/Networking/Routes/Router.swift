@@ -8,31 +8,19 @@
 //
 import Foundation
 
-enum Result<String> {
-    case success
-    case failure(String)
-}
-
-enum NetworkResponse: String {
-    case success
-    case authenticationError = "Auth Error"
-    case badRequest = "Bad Request"
-    case unableToDecode = "Unable to decode response"
-}
-
-enum Router {
+enum Router: String {
     case getSomething
 }
 
 extension Router: EndPointType {
     var baseURL: URL {
-        return URL(string: "www.google.com")!
+        return URL(string: apiURL)!
     }
     
     var path: String {
         switch self {
         case .getSomething:
-            return "/search"
+            return EndPoint.getSomething.rawValue
         }
     }
     

@@ -9,7 +9,7 @@
 import Foundation
 
 class ServiceLayer {
-    static func request<T: Codable>(route: Router, onSuccess: @escaping (T)->(), onError: @escaping(String)->()) {
+    static func request<T: Codable>(route: EndPointType, onSuccess: @escaping (T)->(), onError: @escaping(String)->()) {
         var task: URLSessionTask?
         let session = URLSession(configuration: .default)
         do {
