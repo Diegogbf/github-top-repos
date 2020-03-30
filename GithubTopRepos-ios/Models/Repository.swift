@@ -9,21 +9,21 @@
 import Foundation
 
 class Repository: Codable {
-    let id: Int
-    let nodeID, name, fullName: String
-    let owner: Owner
-    let itemPrivate: Bool
-    let htmlURL: String
-    let itemDescription: String
-    let fork: Bool
-    let url: String
-    let createdAt, updatedAt, pushedAt: Date
-    let homepage: String
-    let size, stargazersCount, watchersCount: Int
-    let language: String
-    let forksCount, openIssuesCount: Int
-    let masterBranch, defaultBranch: String
-    let score: Double
+    var id: Int?
+    var nodeID, name, fullName: String?
+    var owner: Owner?
+    var itemPrivate: Bool?
+    var htmlURL: String?
+    var itemDescription: String?
+    var fork: Bool?
+    var url: String?
+    var createdAt, updatedAt, pushedAt: String?
+    var homepage: String?
+    var size, stargazersCount, watchersCount: Int?
+    var language: String?
+    var forksCount, openIssuesCount: Int?
+    var masterBranch, defaultBranch: String?
+    var score: Double?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -48,8 +48,12 @@ class Repository: Codable {
         case defaultBranch = "default_branch"
         case score
     }
+    
+    init() {
 
-    init(id: Int, nodeID: String, name: String, fullName: String, owner: Owner, itemPrivate: Bool, htmlURL: String, itemDescription: String, fork: Bool, url: String, createdAt: Date, updatedAt: Date, pushedAt: Date, homepage: String, size: Int, stargazersCount: Int, watchersCount: Int, language: String, forksCount: Int, openIssuesCount: Int, masterBranch: String, defaultBranch: String, score: Double) {
+    }
+
+    init(id: Int, nodeID: String, name: String, fullName: String, owner: Owner, itemPrivate: Bool, htmlURL: String, itemDescription: String, fork: Bool, url: String, createdAt: String, updatedAt: String, pushedAt: String, homepage: String, size: Int, stargazersCount: Int, watchersCount: Int, language: String, forksCount: Int, openIssuesCount: Int, masterBranch: String, defaultBranch: String, score: Double) {
         self.id = id
         self.nodeID = nodeID
         self.name = name

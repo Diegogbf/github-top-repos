@@ -9,13 +9,13 @@
 import Foundation
 
 class Owner: Codable {
-    let login: String
-    let id: Int
-    let nodeID: String
-    let avatarURL: String
-    let gravatarID: String
-    let url, receivedEventsURL: String
-    let type: String
+    var login: String?
+    var id: Int?
+    var nodeID: String?
+    var avatarURL: String?
+    var gravatarID: String?
+    var url, receivedEventsURL: String?
+    var type: String?
 
     enum CodingKeys: String, CodingKey {
         case login, id
@@ -25,6 +25,10 @@ class Owner: Codable {
         case url
         case receivedEventsURL = "received_events_url"
         case type
+    }
+    
+    init() {
+        
     }
 
     init(login: String, id: Int, nodeID: String, avatarURL: String, gravatarID: String, url: String, receivedEventsURL: String, type: String) {

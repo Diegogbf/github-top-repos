@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		586EC76B24318CDA0093721E /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586EC76A24318CDA0093721E /* CustomTableView.swift */; };
 		5889598023D60A93002C94D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5889597F23D60A93002C94D9 /* AppDelegate.swift */; };
 		5889598223D60A93002C94D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5889598123D60A93002C94D9 /* SceneDelegate.swift */; };
-		5889598423D60A93002C94D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5889598323D60A93002C94D9 /* ViewController.swift */; };
+		5889598423D60A93002C94D9 /* ReposListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5889598323D60A93002C94D9 /* ReposListViewController.swift */; };
 		5889598723D60A93002C94D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5889598523D60A93002C94D9 /* Main.storyboard */; };
 		5889598923D60A96002C94D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5889598823D60A96002C94D9 /* Assets.xcassets */; };
 		5889598C23D60A96002C94D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5889598A23D60A96002C94D9 /* LaunchScreen.storyboard */; };
@@ -53,6 +54,9 @@
 		58BCC8462426E11F001BFF9A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BCC8452426E11F001BFF9A /* Repository.swift */; };
 		58BCC8482426E190001BFF9A /* RepositoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BCC8472426E190001BFF9A /* RepositoriesList.swift */; };
 		58BCC84A2426E1A1001BFF9A /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BCC8492426E1A1001BFF9A /* Owner.swift */; };
+		58BCC84F2426E3DA001BFF9A /* ResposListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BCC84E2426E3DA001BFF9A /* ResposListViewModel.swift */; };
+		58BCC8532426E70C001BFF9A /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BCC8522426E70C001BFF9A /* Encodable.swift */; };
+		58BCC8552426F01C001BFF9A /* RequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BCC8542426F01C001BFF9A /* RequestHeader.swift */; };
 		913247896A0C58A5B84EA3B7 /* Pods_GithubTopReposTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0F5B246F1D4B2B8287BB45 /* Pods_GithubTopReposTests.framework */; };
 		A0DAECF80734A96463A06132 /* Pods_GithubTopRepos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B75F6708BAC6A96011BA5E38 /* Pods_GithubTopRepos.framework */; };
 		EE16277C3FA302B27ED1613B /* Pods_GithubTopRepos_GithubTopReposUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A737AAC90E2C80C03553262 /* Pods_GithubTopRepos_GithubTopReposUITests.framework */; };
@@ -79,10 +83,11 @@
 		01C661995A0FADCCB3947E44 /* Pods-GithubTopRepos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubTopRepos.debug.xcconfig"; path = "Target Support Files/Pods-GithubTopRepos/Pods-GithubTopRepos.debug.xcconfig"; sourceTree = "<group>"; };
 		02E25E409B1D430298974FBC /* Pods-GithubTopRepos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubTopRepos.release.xcconfig"; path = "Target Support Files/Pods-GithubTopRepos/Pods-GithubTopRepos.release.xcconfig"; sourceTree = "<group>"; };
 		3A737AAC90E2C80C03553262 /* Pods_GithubTopRepos_GithubTopReposUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubTopRepos_GithubTopReposUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		586EC76A24318CDA0093721E /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
 		5889597C23D60A93002C94D9 /* GithubTopRepos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubTopRepos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5889597F23D60A93002C94D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5889598123D60A93002C94D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5889598323D60A93002C94D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5889598323D60A93002C94D9 /* ReposListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListViewController.swift; sourceTree = "<group>"; };
 		5889598623D60A93002C94D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5889598823D60A96002C94D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5889598B23D60A96002C94D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -111,6 +116,9 @@
 		58BCC8452426E11F001BFF9A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		58BCC8472426E190001BFF9A /* RepositoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesList.swift; sourceTree = "<group>"; };
 		58BCC8492426E1A1001BFF9A /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		58BCC84E2426E3DA001BFF9A /* ResposListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResposListViewModel.swift; sourceTree = "<group>"; };
+		58BCC8522426E70C001BFF9A /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		58BCC8542426F01C001BFF9A /* RequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeader.swift; sourceTree = "<group>"; };
 		7C0F5B246F1D4B2B8287BB45 /* Pods_GithubTopReposTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubTopReposTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EEE26FDEBB0AABC957F1DC9 /* Pods-GithubTopRepos-GithubTopReposUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubTopRepos-GithubTopReposUITests.release.xcconfig"; path = "Target Support Files/Pods-GithubTopRepos-GithubTopReposUITests/Pods-GithubTopRepos-GithubTopReposUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ACB774E3D188235B6570E827 /* Pods-GithubTopReposTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubTopReposTests.debug.xcconfig"; path = "Target Support Files/Pods-GithubTopReposTests/Pods-GithubTopReposTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +166,14 @@
 				FB898AA560E757B7C0C4378C /* Pods-GithubTopReposTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		586EC76924318CC00093721E /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				586EC76A24318CDA0093721E /* CustomTableView.swift */,
+			);
+			path = CustomComponents;
 			sourceTree = "<group>";
 		};
 		5889597323D60A92002C94D9 = {
@@ -253,6 +269,7 @@
 		588959D823D66FFF002C94D9 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				586EC76924318CC00093721E /* CustomComponents */,
 				588959D923D67007002C94D9 /* Extension */,
 			);
 			path = Utility;
@@ -266,6 +283,7 @@
 				58BCC82F242451A5001BFF9A /* UIImageView.swift */,
 				58BCC832242451A5001BFF9A /* UITableView.swift */,
 				58BCC830242451A5001BFF9A /* Float.swift */,
+				58BCC8522426E70C001BFF9A /* Encodable.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -292,6 +310,7 @@
 				58BCC8452426E11F001BFF9A /* Repository.swift */,
 				58BCC8472426E190001BFF9A /* RepositoriesList.swift */,
 				58BCC8492426E1A1001BFF9A /* Owner.swift */,
+				58BCC8542426F01C001BFF9A /* RequestHeader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,9 +318,18 @@
 		58BCC84B2426E1D9001BFF9A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5889598323D60A93002C94D9 /* ViewController.swift */,
+				58BCC84C2426E3AE001BFF9A /* ReposList */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		58BCC84C2426E3AE001BFF9A /* ReposList */ = {
+			isa = PBXGroup;
+			children = (
+				5889598323D60A93002C94D9 /* ReposListViewController.swift */,
+				58BCC84E2426E3DA001BFF9A /* ResposListViewModel.swift */,
+			);
+			path = ReposList;
 			sourceTree = "<group>";
 		};
 		D3092A6F6FF867D5911659C8 /* Frameworks */ = {
@@ -562,16 +590,20 @@
 				588959BD23D60D50002C94D9 /* HTTPTask.swift in Sources */,
 				58BCC836242451A5001BFF9A /* UITableView.swift in Sources */,
 				588959DB23D67072002C94D9 /* HTTPURLResponse+HandleResponse.swift in Sources */,
+				58BCC8532426E70C001BFF9A /* Encodable.swift in Sources */,
 				588959B523D60B82002C94D9 /* EndPointType.swift in Sources */,
-				5889598423D60A93002C94D9 /* ViewController.swift in Sources */,
+				5889598423D60A93002C94D9 /* ReposListViewController.swift in Sources */,
 				588959C923D611C5002C94D9 /* JSONParameterEncoder.swift in Sources */,
 				5889598023D60A93002C94D9 /* AppDelegate.swift in Sources */,
 				58BCC8462426E11F001BFF9A /* Repository.swift in Sources */,
+				58BCC84F2426E3DA001BFF9A /* ResposListViewModel.swift in Sources */,
 				588959B923D60D3C002C94D9 /* HTTPMethod.swift in Sources */,
 				58BCC8482426E190001BFF9A /* RepositoriesList.swift in Sources */,
+				58BCC8552426F01C001BFF9A /* RequestHeader.swift in Sources */,
 				58BCC82E2424510F001BFF9A /* NetworkResponse.swift in Sources */,
 				58BCC834242451A5001BFF9A /* Float.swift in Sources */,
 				58BCC84A2426E1A1001BFF9A /* Owner.swift in Sources */,
+				586EC76B24318CDA0093721E /* CustomTableView.swift in Sources */,
 				5889598223D60A93002C94D9 /* SceneDelegate.swift in Sources */,
 				58BCC835242451A5001BFF9A /* String.swift in Sources */,
 				58BCC82C24244E4C001BFF9A /* EndPoint.swift in Sources */,

@@ -9,17 +9,21 @@
 import Foundation
 
 class RepositoriesList: Codable {
-    let totalCount: Int
-    let incompleteResults: Bool
-    let items: [Repository]
-
+    var totalCount: Int?
+    var incompleteResults: Bool?
+    var items: [Repository]?
+    
     enum CodingKeys: String, CodingKey {
         case totalCount = "total_count"
         case incompleteResults = "incomplete_results"
         case items
     }
-
-    init(totalCount: Int, incompleteResults: Bool, items: [Item]) {
+    
+    init() {
+        
+    }
+    
+    init(totalCount: Int, incompleteResults: Bool, items: [Repository]) {
         self.totalCount = totalCount
         self.incompleteResults = incompleteResults
         self.items = items

@@ -8,8 +8,8 @@
 //
 import Foundation
 
-enum Router: String {
-    case getSomething
+enum Router {
+    case listRepos(request: ReposListHeader)
 }
 
 extension Router: EndPointType {
@@ -19,22 +19,22 @@ extension Router: EndPointType {
     
     var path: String {
         switch self {
-        case .getSomething:
-            return EndPoint.getSomething.rawValue
+        case .listRepos:
+            return EndPoint.listRepos.rawValue
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .getSomething:
+        case .listRepos:
             return .get
         }
     }
     
     var task: HTTPTask {
         switch self {
-        case .getSomething:
-            return .request
+        case .listRepos(let request):
+            return .requestParameters(bodyParameters: nil, urlParameters: request.dictionary)
         }
     }
     

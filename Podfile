@@ -7,6 +7,8 @@ target 'GithubTopRepos' do
 
   # Pods for GithubTopRepos
   pod 'SnapKit'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
   target 'GithubTopReposTests' do
     inherit! :search_paths

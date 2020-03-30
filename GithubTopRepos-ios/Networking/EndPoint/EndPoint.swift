@@ -8,8 +8,8 @@
 
 import Foundation
 
-let apiURL = ""
+let apiURL = "https://api.github.com/"
 
 enum EndPoint: String {
-    case getSomething = ""
+    case listRepos = "search/repositories"
 }
