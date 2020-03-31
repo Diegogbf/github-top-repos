@@ -18,19 +18,6 @@ class CustomTableView: UITableView {
         return refreshControl
     }()
     
-    private lazy var errorView: UIView = {
-        let view = UIView(frame: .zero)
-        view.backgroundColor = .white
-        
-        let label = UILabel(frame: .zero)
-        label.text = "Ocorreu um erro :( Tente Novamente"
-        
-        view.addSubview(label)
-        label.snp.makeConstraints { $0.center.equalToSuperview() }
-        
-        return view
-    }()
-    
     func showLoader(_ show: Bool) {
         show ? pullToRefreshControl.beginRefreshing() : pullToRefreshControl.endRefreshing()
     }
