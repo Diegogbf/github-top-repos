@@ -12,4 +12,8 @@ extension UITableView {
     func registerCell(_ cell: String) {
         register(UINib(nibName: cell, bundle: nil), forCellReuseIdentifier: cell)
     }
+    
+    func register<T: UITableViewCell>(_ cell: T.Type) where T:Reusable {
+        register(cell.self, forCellReuseIdentifier: T.reuseId)
+    }
 }

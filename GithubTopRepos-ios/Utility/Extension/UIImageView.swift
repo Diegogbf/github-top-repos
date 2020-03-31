@@ -14,10 +14,19 @@ extension UIImageView {
     }
     
     func downloadImage(url: String?) {
+        image = nil
+        
+        let indicator = UIActivityIndicatorView()
+        addSubview(indicator)
+        indicator.snp.makeConstraints { $0.center.equalToSuperview() }
+        indicator.startAnimating()
+        
         if let stringUrl = url, let url = URL(string: stringUrl) {
             getImagetData(from: url) { data, response, error in
                 guard let data = data, error == nil else { return }
                 DispatchQueue.main.async() {
+                    indicator.stopAnimating()
+                    indicator.removeFromSuperview()
                     self.image = UIImage(data: data)
                 }
             }
