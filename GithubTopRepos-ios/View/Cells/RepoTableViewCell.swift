@@ -8,7 +8,11 @@
 
 import UIKit
 
-class RepoTableViewCell: UITableViewCell {
+class RepoTableViewCell: UITableViewCell, Reusable {
+    
+    static var reuseId: String {
+        return String(describing: self)
+    }
     
     private lazy var repoNameLabel: UILabel = {
         let label = UILabel(frame: .zero)
@@ -52,7 +56,7 @@ class RepoTableViewCell: UITableViewCell {
     private lazy var mainStackView: UIStackView = {
         let stack = UIStackView(frame: .zero)
         stack.axis = .vertical
-        stack.distribution = .fill
+        stack.distribution = .fillProportionally
         stack.alignment = .fill
         stack.spacing = 5
         return stack
@@ -68,6 +72,7 @@ class RepoTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
+        selectionStyle = .none
         [starsLabel, watchersLabel].forEach { popularityStackView.addArrangedSubview($0) }
         [repoNameLabel, ownerLabel, popularityStackView].forEach { mainStackView.addArrangedSubview($0) }
         [mainStackView, ownerAvatar].forEach { contentView.addSubview($0) }
