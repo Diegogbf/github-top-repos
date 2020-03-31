@@ -24,28 +24,15 @@ protocol RepoListDelegate: class {
 class ReposListViewModel {
     // MARK: - Variables
     var repositories = [Repository]()
-    var currentPage: Int = 0
     var filterType = BehaviorRelay<RepoListOrderType>(value: .stars)
-    var loading = PublishSubject<Bool>()
-    let bag = DisposeBag()
-    var isPaginating = false {
-        didSet {
-            self.delegate?.reloadData()
-        }
-    }
     var shouldPaginate = true
-    
     weak var delegate: RepoListDelegate?
+    private var currentPage: Int = 0
+    private let bag = DisposeBag()
     
+    // MARK: - Life Cycle
     init() {
         setupObservables()
-    }
-    
-    func resetPagination() {
-        currentPage = 0
-        shouldPaginate = true
-        isPaginating = false
-        repositories.removeAll()
     }
     
     private func setupObservables() {
@@ -55,8 +42,14 @@ class ReposListViewModel {
                 self?.resetPagination()
                 self?.delegate?.reloadData()
                 self?.fetchRepos()
-            }
+                }
         ).disposed(by: bag)
+    }
+    
+    func resetPagination() {
+        currentPage = 0
+        shouldPaginate = true
+        repositories.removeAll()
     }
     
     // MARK: - Api Request
@@ -70,10 +63,9 @@ class ReposListViewModel {
                 self.repositories.append(contentsOf: response.items ?? [])
                 self.shouldPaginate = (response.items?.count ?? 0) != 0
                 self.currentPage += 1
-                self.isPaginating = false
+                self.delegate?.reloadData()
             }) { (msg) in
                 self.delegate?.showLoader(false)
-                self.isPaginating = false
                 self.delegate?.showError(message: msg)
             }
         }

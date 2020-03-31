@@ -9,6 +9,8 @@
 import UIKit
 
 class CustomTableView: UITableView {
+    
+    // MARK: - Variables
     private lazy var pullToRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self,
@@ -17,10 +19,6 @@ class CustomTableView: UITableView {
         refreshControl.tintColor = .black
         return refreshControl
     }()
-    
-    func showLoader(_ show: Bool) {
-        show ? pullToRefreshControl.beginRefreshing() : pullToRefreshControl.endRefreshing()
-    }
     
     var pullToRefreshAction: (()->())? {
         didSet {
@@ -32,5 +30,9 @@ class CustomTableView: UITableView {
     
     @objc private func pullToRefresh() {
         pullToRefreshAction?()
+    }
+    
+    func showLoader(_ show: Bool) {
+        show ? pullToRefreshControl.beginRefreshing() : pullToRefreshControl.endRefreshing()
     }
 }

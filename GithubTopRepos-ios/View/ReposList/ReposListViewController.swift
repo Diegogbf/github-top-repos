@@ -13,6 +13,7 @@ import RxCocoa
 
 class ReposListViewController: UIViewController {
     
+    // MARK: - Variables
     private lazy var segmentControl: UISegmentedControl = {
         let segmentControl = UISegmentedControl(items: [RepoListOrderType.stars.rawValue, RepoListOrderType.watchers.rawValue])
         segmentControl.backgroundColor = .white
@@ -25,13 +26,22 @@ class ReposListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(RepoTableViewCell.self)
-        tableView.register(LoaderCell.self)
+        
+        let indicator = UIActivityIndicatorView()
+        indicator.tintColor = .black
+        indicator.startAnimating()
+        indicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        indicator.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50)
+        
+        tableView.tableFooterView = indicator
+        tableView.tableFooterView?.isHidden = true
         return tableView
     }()
     
     let viewModel = ReposListViewModel()
     let disposeBag = DisposeBag()
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -40,6 +50,7 @@ class ReposListViewController: UIViewController {
         viewModel.filterType.accept(.stars)
     }
     
+    // MARK: - Setups
     private func setup() {
         navigationItem.titleView = segmentControl
         view.backgroundColor = .systemBackground
@@ -66,44 +77,33 @@ class ReposListViewController: UIViewController {
     }
 }
 
+// MARK: - TableView data source and delegate
 extension ReposListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? viewModel.repositories.count : 1
+        return viewModel.repositories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: RepoTableViewCell.reuseId, for: indexPath) as! RepoTableViewCell
-            cell.setup(repository: viewModel.repositories[indexPath.row])
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: LoaderCell.reuseId, for: indexPath) as! LoaderCell
-            cell.indicator.startAnimating()
-            return cell
-        }
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.isPaginating ? 2 : 1
+        let cell = tableView.dequeueReusableCell(withIdentifier: RepoTableViewCell.reuseId, for: indexPath) as! RepoTableViewCell
+        cell.setup(repository: viewModel.repositories[indexPath.row])
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let repo = viewModel.repositories[indexPath.row]
         if let link = URL(string: repo.htmlURL ?? "") {
-          UIApplication.shared.open(link)
+            UIApplication.shared.open(link)
         }
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.height) {
-            if !viewModel.repositories.isEmpty && viewModel.shouldPaginate && !viewModel.isPaginating {
-                viewModel.isPaginating = true
-                viewModel.fetchRepos()
-            }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if viewModel.repositories.count - 3 == indexPath.row && viewModel.shouldPaginate {
+            viewModel.fetchRepos()
         }
     }
 }
 
+// MARK: - RepoListDelegate
 extension ReposListViewController: RepoListDelegate {
     func showError(message: String) {
         showErrorAlert(msg: message)
@@ -114,7 +114,9 @@ extension ReposListViewController: RepoListDelegate {
     }
     
     func showLoader(_ show: Bool) {
-        if !viewModel.isPaginating {
+        if tableView.numberOfRows(inSection: 0) > 0 {
+            tableView.tableFooterView?.isHidden = !show
+        } else {
             tableView.showLoader(show)
         }
     }

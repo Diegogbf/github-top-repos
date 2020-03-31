@@ -10,6 +10,7 @@ import UIKit
 
 class RepoTableViewCell: UITableViewCell, Reusable {
     
+    // MARK: - Variables
     static var reuseId: String {
         return String(describing: self)
     }
@@ -62,6 +63,7 @@ class RepoTableViewCell: UITableViewCell, Reusable {
         return stack
     }()
     
+    // MARK: - Life Cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -71,6 +73,7 @@ class RepoTableViewCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Setups
     private func setupView() {
         selectionStyle = .none
         [starsLabel, watchersLabel].forEach { popularityStackView.addArrangedSubview($0) }
